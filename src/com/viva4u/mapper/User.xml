@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+    <mapper namespace="com.viva4u.mapper.UserMapper">
+    	<insert id="addUser" parameterType="User">
+    		insert into YXJ_USER(USERNAME,PASSWORD) values(#{username},#{password})
+    	</insert>
+    	<delete id="delUser" parameterType="String">
+    		delete from YXJ_USER where USERNAME=#{username}
+    	</delete>
+    	<update id="updateUserPwd" parameterType="Map">
+    		update YXJ_USER set PASSWORD=#{password} where USERNAME=#{username}
+    	</update>
+    	<select id="getUserByName" parameterType="String" resultType="User">
+            select * from  YXJ_USER where USERNAME=#{username}     
+        </select>
+        <select id="listUser" resultType="User">
+            select * from  YXJ_USER     
+        </select>
+    </mapper>
