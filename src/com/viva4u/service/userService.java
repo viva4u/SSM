@@ -6,5 +6,5 @@ import com.viva4u.pojo.User;
 
 public interface userService {
 	public List<User> listUserService();
-	public User getUserByNameService(String name);
+	public User getUserByName(String name);
 }	
