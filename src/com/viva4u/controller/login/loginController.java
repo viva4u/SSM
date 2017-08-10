@@ -23,7 +23,7 @@ public class loginController {
 	public String  loginSuccess(@RequestParam("name") String uname,@RequestParam("password") String pwd,Model model) {
 		System.out.println(uname);
 		System.out.println(pwd);
-		User user = userService.getUserByName(uname);
+		User user = userService.getUserByNameService(uname);
 		System.out.println("user:"+user);
 //		System.out.println("user.name:"+user.getName());
 //		System.out.println("user.password:"+user.getPwd());
