@@ -14,7 +14,7 @@ import com.viva4u.service.impl.userServiceImpl;
 @Controller
 public class loginController {
 	@Autowired
-	userServiceImpl userServiceImpl;
+	userService userService;
 	@RequestMapping("/login")
 	public String loginmain() {
 		return "main";
@@ -23,7 +23,7 @@ public class loginController {
 	public String  loginSuccess(@RequestParam("name") String uname,@RequestParam("password") String pwd,Model model) {
 		System.out.println(uname);
 		System.out.println(pwd);
-		User user = userServiceImpl.getUserByNameService(uname);
+		User user = userService.getUserByName(uname);
 		System.out.println("user:"+user);
 //		System.out.println("user.name:"+user.getName());
 //		System.out.println("user.password:"+user.getPwd());
@@ -32,10 +32,10 @@ public class loginController {
 				model.addAttribute("name", uname);
 				return "loginSuc";
 			}else {
-				model.addAttribute("message", "ÃÜÂë´íÎó£¡");
+				model.addAttribute("message", "å¯†ç é”™è¯¯ï¼");
 			}
 		}else {
-			model.addAttribute("message", "ÓÃ»§Ãû²»´æÔÚ£¡");
+			model.addAttribute("message", "ç”¨æˆ·åä¸å­˜åœ¨ï¼");
 		}
 		return "main";
 	}
